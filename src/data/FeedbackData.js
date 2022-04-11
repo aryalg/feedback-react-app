@@ -15,6 +15,11 @@ const feedbackData = [
     id: 3,
     rating: 8.5,
     text: 'Adipisicing et voluptate laboris irure et minim consequat amet pariatur proident incididunt cillum. Elit commodo exercitation commodo non nisi nostrud consequat nisi est. Eu commodo tempor ad incididunt. Ullamco eiusmod duis consequat occaecat magna elit irure ut laborum. Aute adipisicing quis ut nisi sunt deserunt Lorem qui ipsum nulla laboris.'
+  },
+  {
+    id: 4,
+    rating: 3.5,
+    text: 'Adipisicing et voluptate laboris irure et minim consequat amet pariatur proident incididunt cillum. Elit commodo exercitation commodo non nisi nostrud consequat nisi est. Eu commodo tempor ad incididunt. Ullamco eiusmod duis consequat occaecat magna elit irure ut laborum. Aute adipisicing quis ut nisi sunt deserunt Lorem qui ipsum nulla laboris.'
   }
 ]
 

@@ -5,7 +5,7 @@ import React from 'react'
 import FeedbackItem from './FeedbackItem';
 import PropTypes from 'prop-types'
 
-const FeedbackList = ({ feedback, handleDelete }) => {
+const FeedbackList = ({ feedback, handleDelete, }) => {
 
   if (!feedback || feedback.length === 0) {
     return <p>No Feedback</p>
