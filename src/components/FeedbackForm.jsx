@@ -2,12 +2,14 @@ import { isDisabled } from '@testing-library/user-event/dist/utils';
 import React, { useState } from 'react'
 import Button from './Button';
 import Card from './Card'
+import RatingSelect from './RatingSelect';
 
 const FeedbackForm = () => {
 
     const [text, setText] = useState('')
     const [btnDisabled, setBtnDisabled] = useState(true);
     const [message, setMessage] = useState('');
+    const [rating, setRating] = useState(10);
 
     const handleTextChange = (e) => {
 
@@ -32,6 +34,10 @@ const FeedbackForm = () => {
         <Card>
             <form>
                 <h2>How would you rate your service with us?</h2>
+                <RatingSelect select={(rating) => {
+                    console.log('received rating is', rating);
+                    setRating(rating)
+                }} />
                 <div>
                     <input
                         onChange={handleTextChange}
