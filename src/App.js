@@ -5,6 +5,7 @@ import FeedbackList from './components/FeedbackList';
 import FeedbackStats from './components/FeedbackStats';
 import Header from './components/Header';
 import FeedbackData from './data/FeedbackData';
+import { v4} from 'uuid';
 
 
 function App() {
@@ -18,6 +19,13 @@ function App() {
         setFeedback(feedback.filter((item) => item.id !== id))
       
     }
+    }
+  
+
+  const addFeedback = (newFeedback) => {
+    newFeedback.id = v4(); // ⇨ '9b1deb4d-3b7d-4bad-9bdd-2b0d7b3dcb6d'
+
+    setFeedback([newFeedback, ...feedback]);
   }
 
 
@@ -27,7 +35,7 @@ function App() {
     <div className="App">
       <Header />
       <div className='container'>
-        <FeedbackForm />
+        <FeedbackForm handleAddFeedback={addFeedback} />
         <FeedbackStats feedback={feedback} />
        <FeedbackList feedback={feedback} handleDelete={deleteFeedback} />
       </div>

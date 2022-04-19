@@ -4,7 +4,7 @@ import Button from './Button';
 import Card from './Card'
 import RatingSelect from './RatingSelect';
 
-const FeedbackForm = () => {
+const FeedbackForm = ({ handleAddFeedback }) => {
 
     const [text, setText] = useState('')
     const [btnDisabled, setBtnDisabled] = useState(true);
@@ -28,11 +28,33 @@ const FeedbackForm = () => {
     }
 
 
+    const handleSubmit = (e) => {
+        e.preventDefault();
+
+        if (text.trim().length > 10) {
+            const newFeedback = {
+                text,
+                rating
+            }
+
+            handleAddFeedback(newFeedback);
+
+
+            setText('');
+
+        }
+
+
+
+
+    }
+
+
 
 
     return (
         <Card>
-            <form>
+            <form onSubmit={handleSubmit}>
                 <h2>How would you rate your service with us?</h2>
                 <RatingSelect select={(rating) => {
                     console.log('received rating is', rating);
