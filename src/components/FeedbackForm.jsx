@@ -1,10 +1,13 @@
-import { isDisabled } from '@testing-library/user-event/dist/utils';
-import React, { useState } from 'react'
+import React, { useContext, useState } from 'react'
+import { FeedbackContext } from '../context/FeedbackContext';
 import Button from './Button';
 import Card from './Card'
 import RatingSelect from './RatingSelect';
 
-const FeedbackForm = ({ handleAddFeedback }) => {
+const FeedbackForm = () => {
+
+
+    const { addFeedback } = useContext(FeedbackContext);
 
     const [text, setText] = useState('')
     const [btnDisabled, setBtnDisabled] = useState(true);
@@ -37,7 +40,7 @@ const FeedbackForm = ({ handleAddFeedback }) => {
                 rating
             }
 
-            handleAddFeedback(newFeedback);
+            addFeedback(newFeedback);
 
 
             setText('');
