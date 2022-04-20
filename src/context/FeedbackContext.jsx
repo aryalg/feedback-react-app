@@ -16,6 +16,12 @@ const FeedbackProvider = ({ children }) => {
 
     ])
 
+
+    const [feedbackEdit, setFeedbackEdit] = useState({
+        item: {},
+        edit: false
+    })
+
     const addFeedback = (newFeedback) => {
         newFeedback.id = v4(); // ⇨ '9b1deb4d-3b7d-4bad-9bdd-2b0d7b3dcb6d'
 
@@ -31,6 +37,28 @@ const FeedbackProvider = ({ children }) => {
     }
 
 
+    const editFeedback = (item) => {
+
+        console.log(item);
+
+        setFeedbackEdit({
+            item,
+            edit: true
+
+        })
+    }
+    const updateFeedback = (id, updatedItem) => {
+
+        setFeedback(feedback.map((item) => (item.id === id ? { ...item, ...updatedItem } : item)));
+
+        setFeedbackEdit({
+            item: {},
+            edit: false
+        })
+
+    }
+
+
 
     return (
         <FeedbackContext.Provider
@@ -38,7 +66,10 @@ const FeedbackProvider = ({ children }) => {
                 feedback,
                 addFeedback,
                 deleteFeedback,
-                name: 'Bikram'
+                editFeedback,
+                feedbackEdit,
+                updateFeedback
+
             }}
 
         >
