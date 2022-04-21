@@ -20,6 +20,8 @@ const FeedbackProvider = ({ children }) => {
     })
 
 
+
+
     useEffect(() => {
 
         setIsLoading(true);
@@ -34,7 +36,7 @@ const FeedbackProvider = ({ children }) => {
 
     const fetchFeedbacks = async () => {
 
-        const res = await fetch('http://localhost:3500/feedbacks')
+        const res = await fetch('/feedbacks')
 
 
         const data = await res.json()
