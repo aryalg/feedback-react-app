@@ -49,10 +49,20 @@ const FeedbackProvider = ({ children }) => {
 
 
 
-    const addFeedback = (newFeedback) => {
+    const addFeedback = async (newFeedback) => {
         newFeedback.id = v4(); // ⇨ '9b1deb4d-3b7d-4bad-9bdd-2b0d7b3dcb6d'
 
-        setFeedback([newFeedback, ...feedback]);
+        const res = await fetch('/feedbacks', {
+            method: 'POST',
+            headers: {
+                'Content-Type': 'application/json'
+            },
+            body: JSON.stringify(newFeedback)
+        })
+
+        const data = await res.json()
+
+        setFeedback([data, ...feedback])
     }
 
     const deleteFeedback = (id) => {
